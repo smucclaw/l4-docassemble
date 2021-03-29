@@ -1,7 +1,5 @@
 #+TITLE: l4-docassemble-readme
 
-* l4-docassemble
-
 This is a docker image meant for use in testing l4-transpiled docassemble interviews.
 
 
