@@ -1,0 +1,42 @@
+#+TITLE l4-docassemble-readme
+
+* l4-docassemble
+
+This is a docker image meant for use in testing l4-transpiled docassemble interviews.
+
+
+** Requirements
+- Docker
+
+** Build instructions
+1) Clone this directory
+2) Run the following command:
+
+   #+begin_src bash
+docker build -t l4-da .
+   #+end_src
+
+   This installs a local image of l4-da within your docker.
+
+** Running the docker instance
+#+begin_src bash
+docker run -d -p 80:80 -p 443:443 --stop-timeout 600 l4-da
+#+end_src
+
+- When it succeeds, you should see a hash output from STDOUT
+- Wait 2 minutes for it to initialize, then open your web-browser of choice & connect to localhost
+- default loging details are "admin@admin.com" & "password"
+
+
+** Testing
+
+The docker image consists of the original docassemble environment written by jhpyle, with an sCASP reasoner as well as some docassemble packages installed.
+
+To test the docassemble packages:
+    - docassemble-datatypes
+      1) Go to http://localhost/interview?i=docassemble.datatypes:datatypes_test.yml
+      2) The demonstration interview should work without errors
+
+    - docassemble-scasp
+      1) Go to http://localhost/interview?i=docassemble.scasp:DAScasp_test.yml
+      2) You should see an answer that Socrates is mortal, together with reasons
