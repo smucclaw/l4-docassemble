@@ -1,4 +1,4 @@
-FROM jhpyle/docassemble
+FROM jhpyle/docassemble:latest
 
 USER www-data
 RUN LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
