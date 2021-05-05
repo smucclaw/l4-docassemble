@@ -1,5 +1,9 @@
 FROM jhpyle/docassemble:latest
 
+USER root
+RUN sed -i '/echo "initialize finished"/ a\redis-cli set da:api:userid:1:key:RnyeaGLk1ZNsRTfXYYqWMQH1smnxn26s:info \"{\\\"name\\\": \\\"foo\\\", \\\"method\\\": \\\"none\\\", \\\"constraints\\\": []}\"\; echo $? >&2' /usr/share/docassemble/webapp/initialize.sh
+RUN echo "\nl4:\n  api key: RyeaGLk1ZNsRTfXYYqWMQH1smnxn26s" >> /usr/share/docassemble/config/config.yml.dist
+
 USER www-data
 RUN LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
 bash -c \
