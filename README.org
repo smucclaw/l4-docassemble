@@ -23,7 +23,7 @@ docker run -d -p 80:80 -p 443:443 --stop-timeout 600 l4-da
 
 - When it succeeds, you should see a hash output from STDOUT
 - Wait 2 minutes for it to initialize, then open your web-browser of choice & connect to localhost
-- default loging details are "admin@admin.com" & "password"
+- default login details are "admin@admin.com" & "password"
 
 
 ** Testing
@@ -31,6 +31,11 @@ docker run -d -p 80:80 -p 443:443 --stop-timeout 600 l4-da
 The docker image consists of the original docassemble environment written by jhpyle, with an sCASP reasoner as well as some docassemble packages installed.
 
 To test the docassemble packages:
+    - docassemble-l4
+      1) Go to http://localhost/interview?i=docassemble.l4:data/questions/intgen.yml
+      2) Select 'r34.pl' for the first page, and 'r34.yml' for the second.
+      3) Click to generate the new interview. It should open on a new page with no issues.
+
     - docassemble-datatypes
       1) Go to http://localhost/interview?i=docassemble.datatypes:datatypes_test.yml
       2) The demonstration interview should work without errors
