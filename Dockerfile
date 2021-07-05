@@ -1,7 +1,7 @@
 FROM jhpyle/docassemble:latest
 
 USER root
-RUN sed -i '/echo "initialize finished"/ a\mkdir -p /usr/share/docassemble/files/playgroundstatic/1 \ncp /tmp/docassemble-l4/docassemble/l4/data/static/r34.pl /usr/share/docassemble/files/playgroundstatic/1/r34.pl && cp /tmp/docassemble-l4/docassemble/l4/data/static/r34.yml /usr/share/docassemble/files/playgroundstatic/1/r34.yml \nredis-cli set da:api:userid:1:key:RnyeaGLk1ZNsRTfXYYqWMQH1smnxn26s:info \"{\\\"name\\\": \\\"foo\\\", \\\"method\\\": \\\"none\\\", \\\"constraints\\\": []}\"\; echo $? >&2' /usr/share/docassemble/webapp/initialize.sh
+RUN sed -i '/echo "initialize finished"/ a\mkdir -p /usr/share/docassemble/files/playgroundstatic/1 \ncp /tmp/docassemble-l4/docassemble/l4/data/static/r34.pl /usr/share/docassemble/files/playgroundstatic/1/r34.pl && cp /tmp/docassemble-l4/docassemble/l4/data/static/r34.yml /usr/share/docassemble/files/playgroundstatic/1/r34.yml \nchown www-data: \usr/share/docassemble/files/playgroundstatic/1 \nredis-cli set da:api:userid:1:key:RnyeaGLk1ZNsRTfXYYqWMQH1smnxn26s:info \"{\\\"name\\\": \\\"foo\\\", \\\"method\\\": \\\"none\\\", \\\"constraints\\\": []}\"\; echo $? >&2' /usr/share/docassemble/webapp/initialize.sh
 RUN echo "\nl4:\n  api key: RnyeaGLk1ZNsRTfXYYqWMQH1smnxn26s" >> /usr/share/docassemble/config/config.yml.dist
 
 USER www-data
