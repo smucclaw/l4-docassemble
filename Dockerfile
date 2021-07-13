@@ -22,9 +22,9 @@ USER www-data
 RUN LC_CTYPE=C.UTF-8 LANG=C.UTF-8 \
 bash -c \
 "cd /tmp \
-&& git clone https://github.com/smucclaw/docassemble-datatypes \
-&& git clone https://github.com/smucclaw/docassemble-scasp \
-&& git clone https://github.com/smucclaw/docassemble-l4 \
+&& git clone -b v0.0.1 --single-branch https://github.com/smucclaw/docassemble-datatypes \
+&& git clone -b v0.0.1 --single-branch https://github.com/smucclaw/docassemble-scasp \
+&& git clone -b v0.0.1 --single-branch https://github.com/smucclaw/docassemble-l4 \
 && source /usr/share/docassemble/local3.8/bin/activate \
 && pip3 install --upgrade \
    /tmp/docassemble-datatypes \
